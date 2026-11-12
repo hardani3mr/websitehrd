@@ -1,0 +1,45 @@
+---
+import Base from "../../layouts/Base.astro";
+import { render } from "astro:content";
+import { getPosts, formatDate, readingMinutes, coverUrl } from "../../lib/blog.js";
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const ar = post.data.lang === "ar";
+---
+<Base title={post.data.title + (ar ? " — عمر الحردان" : " — Omar Hardani")} desc={post.data.description} page="post" root="../">
+<main>
+<article class="post" lang={post.data.lang} dir={ar ? "rtl" : "ltr"}>
+  <header class="page-hero post-hero">
+    <div class="glow"></div>
+    <div class="container post-wrap">
+      <a class="post-back" href="../blog.html"><svg class="i-dir" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span>{ar ? "كل المقالات" : "All essays"}</span></a>
+      {post.data.tags.length > 0 && <div class="post-tags">{post.data.tags.map((t) => <span class="chip">{t}</span>)}</div>}
+      <h1 class="post-title">{post.data.title}</h1>
+      {post.data.description && <p class="lead">{post.data.description}</p>}
+      <div class="post-meta"><span>{ar ? "عمر الحردان" : "Omar Hardani"}</span><span>·</span><span>{formatDate(post.data.date, post.data.lang)}</span><span>·</span><span>{readingMinutes(post.body, post.data.lang)}</span></div>
+    </div>
+  </header>
+  {post.data.cover && <div class="container post-wrap"><img class="post-hero-img" src={coverUrl(post.data.cover, "../")} alt="" /></div>}
+  <div class="container post-wrap prose">
+    <Content />
+  </div>
+</article>
+<section class="section" style="padding-top:64px">
+  <div class="container post-wrap">
+    <div class="post-end glass">
+      <h2 class="h3" data-i18n="p.end.t">تابع القراءة والمشاهدة</h2>
+      <p class="muted" data-i18n="p.end.d">مقالات أخرى، والدليل المجاني للتحول الرقمي، ومحادثة إن أحببت النقاش.</p>
+      <div class="hero-ctas" style="justify-content:flex-start;margin-top:20px">
+        <a class="btn btn-primary btn-sm" href="../blog.html"><span data-i18n="p.end.all">كل المقالات</span><span class="btn-ico"><svg class="i-dir" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+        <a class="btn btn-ghost btn-sm" href="../index.html#guide" data-i18n="b.guide">حمّل الدليل المجاني</a>
+        <a class="btn btn-ghost btn-sm" href="../index.html#contact" data-i18n="nav.cta">احجز محادثة</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+</Base>

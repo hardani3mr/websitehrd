@@ -1,0 +1,130 @@
+---
+// Shared page shell: <head>, navigation, footer and the video player.
+// root = "" for top-level pages, "../" for blog posts (keeps every link relative).
+const { title, desc, page, root = "", home = root + "index.html", chrome = true } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content={desc}>
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content={title}>
+<meta property="og:description" content={desc}>
+<meta property="og:image" content="https://omarhardani.com/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href={root + "assets/img/favicon.svg"} type="image/svg+xml">
+<script is:inline>
+  /* Language: ?lang=en|ar, then saved choice, else Arabic. Runs before paint. */
+  (function () {
+    var d = document.documentElement, lang = "ar";
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      var saved = localStorage.getItem("lang");
+      lang = (q === "en" || q === "ar") ? q : (saved === "en" ? "en" : "ar");
+    } catch (e) {}
+    d.lang = lang; d.dir = lang === "ar" ? "rtl" : "ltr";
+    d.classList.add("js");
+    if (lang === "en") d.classList.add("i18n-pending");
+  })();
+</script>
+<style is:inline>.i18n-pending body{visibility:hidden}</style>
+<script is:inline define:vars={{ SITE_ROOT: root }}>window.SITE_ROOT = SITE_ROOT;</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=IBM+Plex+Sans:wght@200;300;400;500;600&family=Instrument+Serif:ital@1&display=swap">
+<link rel="stylesheet" href={root + "assets/css/style.css"}>
+<script is:inline defer src={root + "assets/js/config.js"}></script>
+<script is:inline defer src={root + "assets/js/i18n.js"}></script>
+<script is:inline defer src={root + "data/videos.js"}></script>
+<script is:inline defer src={root + "assets/js/main.js"}></script>
+</head>
+<body data-page={page} id="top">
+
+{chrome && (<Fragment>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="brand" href={home + "#top"}><svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="15" width="11" height="11" rx="3" fill="#fff"/><rect x="15" y="15" width="11" height="11" rx="3" fill="#fff" fill-opacity=".55"/><rect x="2" y="2" width="11" height="11" rx="3" fill="#fff" fill-opacity=".28"/><rect x="15.6" y="2.6" width="9.8" height="9.8" rx="2.6" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="1.2"/></svg><span data-i18n="brand">عمر الحردان</span></a>
+    <nav class="nav-pill" aria-label="Main">
+      <a href={home + "#top"} data-nav="top" data-i18n="nav.home">الرئيسية</a>
+      <a href={home + "#about"} data-nav="about" data-i18n="nav.about">عنّي</a>
+      <a href={home + "#course"} data-nav="course" data-i18n="nav.course">الكورس</a>
+      <a href={root + "videos.html"} data-nav="videos" data-i18n="nav.videos">الفيديوهات</a>
+      <a href={root + "blog.html"} data-nav="blog" data-i18n="nav.blog">المدونة</a>
+    </nav>
+    <div class="nav-end">
+      <button class="lang-btn" type="button" data-lang-toggle aria-label="Switch language / تغيير اللغة"><span class="lang-label">EN</span></button>
+      <a class="btn btn-primary btn-sm" href={home + "#contact"}><span data-i18n="nav.cta">احجز محادثة</span><span class="btn-ico"><svg class="i-dir" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+      <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobile-menu">
+  <a href={home + "#top"} data-i18n="nav.home">الرئيسية</a>
+  <a href={home + "#about"} data-i18n="nav.about">عنّي</a>
+  <a href={home + "#course"} data-i18n="nav.course">الكورس</a>
+  <a href={root + "videos.html"} data-i18n="nav.videos">الفيديوهات</a>
+  <a href={root + "blog.html"} data-i18n="nav.blog">المدونة</a>
+  <a href={root + "links.html"} data-i18n="nav.links">الروابط</a>
+  <a class="btn btn-primary" href={home + "#contact"}><span data-i18n="nav.cta">احجز محادثة</span><span class="btn-ico"><svg class="i-dir" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+</div>
+
+</Fragment>)}
+<slot />
+{chrome && (<Fragment>
+
+<footer class="footer">
+  <div class="glow"></div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href={home + "#top"}><svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="15" width="11" height="11" rx="3" fill="#fff"/><rect x="15" y="15" width="11" height="11" rx="3" fill="#fff" fill-opacity=".55"/><rect x="2" y="2" width="11" height="11" rx="3" fill="#fff" fill-opacity=".28"/><rect x="15.6" y="2.6" width="9.8" height="9.8" rx="2.6" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="1.2"/></svg><span data-i18n="brand">عمر الحردان</span></a>
+        <p data-i18n="footer.tagline">أبني، وأتعلّم، وأشارك ما أكتشفه عن الأعمال والتقنية والاقتصاد.</p>
+        <div class="socials">
+          <a class="social" data-social="linkedin" href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13M7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0"/></svg></a>
+          <a class="social" data-social="youtube" href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg></a>
+          <a class="social" data-social="instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r=".9" fill="currentColor" stroke="none"/></svg></a>
+          <a class="social" data-social="facebook" href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 data-i18n="footer.pages">الصفحات</h4>
+        <ul>
+          <li><a href={home + "#about"} data-i18n="nav.about">عنّي</a></li>
+          <li><a href={home + "#course"} data-i18n="nav.course">الكورس</a></li>
+          <li><a href={root + "videos.html"} data-i18n="nav.videos">الفيديوهات</a></li>
+          <li><a href={root + "blog.html"} data-i18n="nav.blog">المدونة</a></li>
+          <li><a href={root + "links.html"} data-i18n="nav.links">الروابط</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.connect">تواصل</h4>
+        <ul>
+          <li><a href={home + "#contact"} data-i18n="nav.cta">احجز محادثة</a></li>
+          <li><a href={home + "#guide"} data-i18n="footer.guide">دليل التحول الرقمي</a></li>
+          <li><a data-mail href="#"><span class="ltr" data-mail-text></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-word" aria-hidden="true" data-i18n="brand">عمر الحردان</div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> <span data-i18n="brand">عمر الحردان</span>. <span data-i18n="footer.rights">جميع الحقوق محفوظة.</span></span>
+      <span data-i18n="footer.made">صُنع بعناية في ماربورغ.</span>
+    </div>
+  </div>
+</footer>
+
+</Fragment>)}
+
+<div class="modal" id="player" role="dialog" aria-modal="true" aria-label="Video">
+  <button class="modal-close glass" type="button" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  <div class="modal-frame"></div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+# Blog writing panel (Decap CMS) — opens at  yoursite.com/admin/
+backend:
+  name: github
+  repo: hardani3mr/websitehrd
+  branch: main
+
+# Images uploaded from the editor are saved here
+media_folder: public/assets/img/blog
+public_folder: /assets/img/blog
+
+# Shows a "Draft → In review → Ready" board before publishing (optional; delete to publish directly)
+# publish_mode: editorial_workflow
+
+collections:
+  - name: blog
+    label: "المقالات · Blog posts"
+    label_singular: "مقال · Post"
+    folder: src/content/blog
+    create: true
+    extension: md
+    slug: "{{fields.slug}}"
+    summary: "{{title}} — {{date}}"
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: "العنوان · Title", widget: string }
+      - { name: slug, label: "رابط المقال (بالإنجليزية، كلمات بينها -) · URL name", widget: string, pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Lowercase English letters, numbers and dashes only — e.g. why-startups-fail"], hint: "مثال: why-startups-fail — لا تغيّره بعد النشر" }
+      - { name: description, label: "وصف قصير (يظهر في بطاقة المقال) · Short description", widget: text, required: false }
+      - { name: date, label: "تاريخ النشر · Date", widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { name: lang, label: "لغة المقال · Language", widget: select, options: [ { label: "العربية", value: ar }, { label: "English", value: en } ], default: ar }
+      - { name: cover, label: "صورة الغلاف (16:9) · Cover image", widget: image, required: false }
+      - { name: tags, label: "الوسوم · Tags", widget: list, required: false }
+      - { name: draft, label: "مسودة (لا تُنشر) · Draft", widget: boolean, default: false, required: false }
+      - { name: body, label: "نص المقال · Body", widget: markdown }

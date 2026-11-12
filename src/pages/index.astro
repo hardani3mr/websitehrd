@@ -1,0 +1,312 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="عمر الحردان — الأعمال، الاستراتيجية، والتقنية" desc="منصة عمر الحردان الشخصية: أفكار وكورسات وحوارات حيث تلتقي الأعمال بالاستراتيجية والتقنية والاقتصاد." page="home" home="">
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero" data-section="top">
+  <div class="glow g1"></div>
+  <div class="dots-bg d1"></div>
+  <div class="dots-bg d2"></div>
+  <div class="container">
+    <a class="badge" href="#course" data-reveal>
+      <b data-i18n="hero.badge.new">جديد</b>
+      <span data-i18n="hero.badge">كورس مجاني في التحول الرقمي</span>
+    </a>
+    <h1 class="h1 grad" data-reveal style="--d:.08s" data-i18n="hero.title">الأعمال، والاستراتيجية، <span class="accent">والتحولات التي تصنع المستقبل</span></h1>
+    <p class="lead" data-reveal style="--d:.16s" data-i18n="hero.lead">أستكشف التقاطعات بين الأعمال والاستراتيجية والتقنية، وأبحث في تطوّر المؤسسات وما يعيد تشكيل عالمنا.</p>
+    <div class="hero-ctas" data-reveal style="--d:.24s">
+      <a class="btn btn-primary" data-link="udemyUrl" href="#" target="_blank" rel="noopener"><span data-i18n="hero.cta1">ابدأ الكورس المجاني</span><span class="btn-ico"><svg class="i-dir" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+      <a class="btn btn-ghost" href="#about" data-i18n="hero.cta2">تعرّف عليّ</a>
+    </div>
+    <div class="hero-media glass" data-reveal style="--d:.32s">
+      <picture>
+        <source srcset="assets/img/hero.webp" type="image/webp">
+        <img src="assets/img/hero.jpg" width="1694" height="952" alt="عمر الحردان" data-i18n-alt="hero.alt" fetchpriority="high">
+      </picture>
+      <button class="hero-play glass" type="button" data-hero-video data-wide aria-label="Play video / تشغيل الفيديو"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VENTURES ================= -->
+<section class="ventures" id="ventures" hidden>
+  <div class="container">
+    <p class="label" data-reveal data-i18n="ventures.label">مشاريع أسّستُها وجهات عملتُ معها</p>
+    <div class="marquee" data-reveal style="--d:.1s"><div class="marquee-track" id="ventures-track"></div></div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about" data-section="about">
+  <div class="container">
+    <div class="head">
+      <span class="tag" data-reveal data-i18n="about.tag">عنّي</span>
+      <h2 class="h2" data-reveal style="--d:.08s" data-i18n="about.title">ريادة الأعمال، وتطوير المؤسسات، <span class="accent">والأنظمة الاقتصادية</span></h2>
+      <p class="lead" data-reveal style="--d:.16s" data-i18n="about.lead">لا أكتفي بفهم آليات بناء الأعمال؛ أحاول أن أفهم كيف تتطوّر المؤسسات والاقتصادات والمجتمعات.</p>
+    </div>
+
+    <div class="pillars">
+      <article class="card pillar" data-reveal>
+        <div class="art"><div class="grid-bg"></div>
+          <div class="art-blocks" aria-hidden="true"><i class="ghost"></i><i></i><i class="ghost"></i><i></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+        </div>
+        <div class="body">
+          <h3 class="h3" data-i18n="about.p1.t">أبني المشاريع</h3>
+          <p data-i18n="about.p1.d">شاركتُ في تأسيس وتطوير عدد من المشاريع والمنتجات الرقمية، وتعلّمتُ كيف تتحوّل الفكرة إلى مشروع، والمشروع إلى مؤسسة.</p>
+        </div>
+      </article>
+      <article class="card pillar" data-reveal style="--d:.1s">
+        <div class="art"><div class="grid-bg"></div>
+          <div class="art-compass" aria-hidden="true"><span class="needle"></span><span class="pin"></span></div>
+        </div>
+        <div class="body">
+          <h3 class="h3" data-i18n="about.p2.t">أفكّر استراتيجياً</h3>
+          <p data-i18n="about.p2.d">أنظر إلى المؤسسات كأنظمة: هياكلها، وقراراتها، وكيف تتعامل مع التغيير والتحديات.</p>
+        </div>
+      </article>
+      <article class="card pillar" data-reveal style="--d:.2s">
+        <div class="art"><div class="grid-bg"></div>
+          <div class="art-lines" aria-hidden="true"><div class="q">“</div><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="body">
+          <h3 class="h3" data-i18n="about.p3.t">أبحث وأكتب</h3>
+          <p data-i18n="about.p3.d">أدرس كيف تعيد الثورة الصناعية والثورة الرقمية وصعود الذكاء الاصطناعي تشكيل العمل والمؤسسات والإنسان.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="creds">
+      <div class="cred glass" data-reveal><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg><span data-i18n="about.c1"><b>بكالوريوس إدارة الأعمال</b> — جامعة أنقرة يلدرم بيازيد، تركيا</span></div>
+      <div class="cred glass" data-reveal style="--d:.08s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg><span data-i18n="about.c2"><b>ماجستير اقتصاديات الشرق الأوسط</b> — جامعة ماربورغ، ألمانيا</span></div>
+      <div class="cred glass" data-reveal style="--d:.16s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 13 5.22 3.48a.5.5 0 0 0 .78-.42V7.87a.5.5 0 0 0-.75-.43L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg><span data-i18n="about.c3"><b>إنتاج المحتوى</b> — تصوير، إخراج، وتقديم</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOCUS ================= -->
+<section class="section" id="focus" data-section="about">
+  <div class="container">
+    <div class="head">
+      <span class="tag" data-reveal data-i18n="focus.tag">مجالات الاهتمام</span>
+      <h2 class="h2" data-reveal style="--d:.08s" data-i18n="focus.title">حيث تلتقي الأعمال <span class="accent">بالتقنية والاقتصاد</span></h2>
+      <p class="lead" data-reveal style="--d:.16s" data-i18n="focus.lead">المجالات التي أعمل فيها، وأتعلّم منها، وأكتب عنها.</p>
+    </div>
+    <div class="focus-grid">
+      <article class="card focus-card" data-reveal><div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22h18"/><path d="M6 18v-7M10 18v-7M14 18v-7M18 18v-7"/><path d="M12 2 20 7H4z"/></svg></div><div><h3 class="h3" data-i18n="focus.1.t">الاستراتيجية والتطوير المؤسسي</h3><p data-i18n="focus.1.d">كيف تُبنى المؤسسات لتدوم، وكيف تُتّخذ القرارات الكبيرة.</p></div></article>
+      <article class="card focus-card" data-reveal style="--d:.08s"><div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div><div><h3 class="h3" data-i18n="focus.2.t">ريادة الأعمال وبناء المشاريع</h3><p data-i18n="focus.2.d">من الفكرة إلى منتج حقيقي، ومن الأخطاء إلى الدروس.</p></div></article>
+      <article class="card focus-card" data-reveal style="--d:.16s"><div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></svg></div><div><h3 class="h3" data-i18n="focus.3.t">التحول الرقمي والذكاء الاصطناعي</h3><p data-i18n="focus.3.d">توظيف التقنية لرفع الإنتاجية دون أن نغفل عن الإنسان.</p></div></article>
+      <article class="card focus-card" data-reveal><div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div><div><h3 class="h3" data-i18n="focus.4.t">الاقتصاد والتنمية والأسواق الناشئة</h3><p data-i18n="focus.4.d">قراءة التحوّلات الاقتصادية وما تعنيه لمنطقتنا.</p></div></article>
+      <article class="card focus-card" data-reveal style="--d:.08s"><div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></div><div><h3 class="h3" data-i18n="focus.5.t">الهياكل التنظيمية والابتكار</h3><p data-i18n="focus.5.d">كيف تتغيّر هياكل الشركات وعملياتها في عصر الذكاء الاصطناعي.</p></div></article>
+      <article class="card focus-card" data-reveal style="--d:.16s"><div class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></div><div><h3 class="h3" data-i18n="focus.6.t">التقنية والأتمتة والمنتجات الرقمية</h3><p data-i18n="focus.6.d">الأنظمة والبنى التقنية، وتطبيقاتها في القطاعات المختلفة.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COURSE ================= -->
+<section class="section" id="course" data-section="course">
+  <div class="container course">
+    <div class="course-intro">
+      <span class="tag" data-reveal data-i18n="course.tag">الكورس الأول</span>
+      <h2 class="h2 grad" data-reveal style="--d:.08s" data-i18n="course.title">مقدمة إلى التحول الرقمي <span class="accent">واستراتيجية المؤسسات</span></h2>
+      <p class="lead" data-reveal style="--d:.16s" data-i18n="course.lead">كورس مجاني على Udemy في خمسة دروس مركّزة: من الفرق بين الرقمنة والتحول الرقمي، إلى بناء الاستراتيجية وتنفيذها وقيادة التغيير.</p>
+      <div class="course-meta" data-reveal style="--d:.2s">
+        <span class="chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.m1">مجاني بالكامل</span></span>
+        <span class="chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg><span data-i18n="course.m2">باللغة العربية</span></span>
+        <span class="chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 7.75a.75.75 0 0 1 1.14-.64l4.17 2.5a.75.75 0 0 1 0 1.28l-4.17 2.5A.75.75 0 0 1 10 12.75z"/><path d="M12 17v4M8 21h8"/><rect x="2" y="3" width="20" height="14" rx="2"/></svg><span data-i18n="course.m3">5 دروس</span></span>
+        <span class="chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg><span>Udemy</span></span>
+      </div>
+      <div data-reveal style="--d:.26s">
+        <a class="btn btn-primary" data-link="udemyUrl" href="#" target="_blank" rel="noopener"><span data-i18n="course.cta">سجّل مجاناً على Udemy</span><span class="btn-ico"><svg class="i-dir" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+      </div>
+    </div>
+
+    <div class="lessons">
+      <div class="lesson" data-lesson>
+        <span class="num">01</span>
+        <div class="card">
+          <span class="step" data-i18n="course.l">الدرس</span>
+          <h3 class="h3" data-i18n="course.1.t">مقدمة سريعة إلى التحول الرقمي</h3>
+          <ul>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.1.a">الفرق بين الرقمنة والتحول الرقمي</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.1.b">لماذا هو مهم؟</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.1.c">نظرة سريعة على التقنيات الأساسية</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="lesson" data-lesson>
+        <span class="num">02</span>
+        <div class="card">
+          <span class="step" data-i18n="course.l">الدرس</span>
+          <h3 class="h3" data-i18n="course.2.t">كيف تبني استراتيجية رقمية فعّالة</h3>
+          <ul>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.2.a">الرؤية والرسالة والأهداف الذكية</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.2.b">التخطيط الاستراتيجي بخطوات عملية</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.2.c">مؤشرات الأداء الأساسية (KPIs)</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="lesson" data-lesson>
+        <span class="num">03</span>
+        <div class="card">
+          <span class="step" data-i18n="course.l">الدرس</span>
+          <h3 class="h3" data-i18n="course.3.t">ربط التكنولوجيا بالاستراتيجية</h3>
+          <ul>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.3.a">البيانات كأصل استراتيجي</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.3.b">الرقمنة كأساس</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.3.c">الأمن السيبراني والأنظمة القديمة</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="lesson" data-lesson>
+        <span class="num">04</span>
+        <div class="card">
+          <span class="step" data-i18n="course.l">الدرس</span>
+          <h3 class="h3" data-i18n="course.4.t">تنفيذ التحول: كيف تبدأ؟</h3>
+          <ul>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.4.a">التزام القيادة وتطوير المواهب</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.4.b">أهمية التواصل الداخلي</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.4.c">التركيز على تجربة العميل</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="lesson" data-lesson>
+        <span class="num">05</span>
+        <div class="card">
+          <span class="step" data-i18n="course.l">الدرس</span>
+          <h3 class="h3" data-i18n="course.5.t">التحديات وخلاصة القيادة الرقمية</h3>
+          <ul>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.5.a">مقاومة التغيير، والميزانية، والأنظمة القديمة</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.5.b">المهارات القيادية المطلوبة</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="course.5.c">خطوات واقعية للبدء بالتحول</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUESTIONS ================= -->
+<section class="section" id="questions" data-section="about">
+  <div class="container">
+    <div class="head">
+      <span class="tag" data-reveal data-i18n="q.tag">أسئلة أبحث فيها</span>
+      <h2 class="h2" data-reveal style="--d:.08s" data-i18n="q.title">ما الذي يتغيّر حين يدخل <span class="accent">الذكاء الاصطناعي</span> إلى العمل؟</h2>
+      <p class="lead" data-reveal style="--d:.16s" data-i18n="q.lead">أسئلة مفتوحة أعود إليها في القراءة والبحث والكتابة.</p>
+    </div>
+    <div class="questions">
+      <div class="q-row" data-reveal><span class="n">01</span><p data-i18n="q.1">كيف يغيّر الذكاء الاصطناعي طبيعة العمل وطريقة تنظيمه؟</p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div>
+      <div class="q-row" data-reveal><span class="n">02</span><p data-i18n="q.2">كيف قد يعيد تشكيل فرص التوظيف وتوزيع المهام؟</p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div>
+      <div class="q-row" data-reveal><span class="n">03</span><p data-i18n="q.3">إلى أيّ حدّ يمكن أن يحلّ محلّ الأدوار البشرية، وأيّ أعمال ستبقى معتمدة على قدرات الإنسان؟</p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div>
+      <div class="q-row" data-reveal><span class="n">04</span><p data-i18n="q.4">ما الآثار الأخلاقية والمخاطر المحتملة لتبنّي الذكاء الاصطناعي؟</p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div>
+      <div class="q-row" data-reveal><span class="n">05</span><p data-i18n="q.5">كيف يتكيّف الأفراد والشركات والمؤسسات مع التغيّر التقني؟</p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div>
+      <div class="q-row" data-reveal><span class="n">06</span><p data-i18n="q.6">كيف نوازن بين مكاسب الإنتاجية والتقدّم التقني وبين التنمية البشرية؟</p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div>
+      <div class="q-row" data-reveal><span class="n">07</span><p data-i18n="q.7">كيف قد يتطوّر مستقبل تطوير البرمجيات ومنتجات SaaS؟</p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MANIFESTO ================= -->
+<section class="section manifesto">
+  <div class="glow"></div>
+  <div class="container">
+    <span class="tag" data-reveal data-i18n="m.tag">ما أؤمن به</span>
+    <blockquote>
+      <p class="quote" data-reveal style="--d:.08s" data-i18n="m.quote">تقنية تخدم الإنسان،<br> <span class="accent">وأعمال تتحمّل مسؤوليتها تجاه المجتمع.</span></p>
+    </blockquote>
+    <p class="lead" data-reveal style="--d:.16s" data-i18n="m.lead">أتعامل مع التقنية بمسؤولية أخلاقية، وأرى الإنتاجية وسيلةً لتنمية الإنسان، لا غايةً في ذاتها.</p>
+    <p class="signature" data-reveal style="--d:.24s" data-i18n="m.sign">— عمر الحردان</p>
+  </div>
+</section>
+
+<!-- ================= GUIDE ================= -->
+<section class="section" id="guide" data-section="course">
+  <div class="container guide">
+    <div class="guide-copy glass" data-reveal>
+      <span class="tag" data-i18n="g.tag">دليل مجاني</span>
+      <h2 class="h2" data-i18n="g.title">دليل <span class="accent">التحول الرقمي</span></h2>
+      <p class="lead" data-i18n="g.lead">ملف PDF عملي يلخّص الخطوات الأساسية لبدء التحول الرقمي في مؤسستك. اكتب اسمك وبريدك لتحميله مباشرة.</p>
+      <form class="form" name="guide" method="POST" data-netlify="true" netlify-honeypot="company" data-lead-form="guide">
+        <input type="hidden" name="form-name" value="guide">
+        <input type="hidden" name="lang" value="ar">
+        <p class="hp"><label>Company <input name="company" tabindex="-1" autocomplete="off"></label></p>
+        <div class="form-fields">
+          <div class="row">
+            <div class="field"><label for="g-name" data-i18n="form.name">الاسم</label><input class="input" id="g-name" name="name" required autocomplete="name" placeholder="اسمك" data-i18n-ph="form.name.ph"></div>
+            <div class="field"><label for="g-email" data-i18n="form.email">البريد الإلكتروني</label><input class="input" id="g-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com" dir="ltr"></div>
+          </div>
+          <button class="btn btn-primary" type="submit" style="margin-top:14px"><span data-i18n="g.cta">أرسل لي الدليل</span><span class="btn-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></span></button>
+          <p class="form-status" role="status"></p>
+          <p class="form-note" data-i18n="form.note">لن أشارك بريدك مع أحد. قد أرسل لك جديد المحتوى، ويمكنك إلغاء ذلك في أي وقت.</p>
+        </div>
+        <div class="form-success">
+          <p data-i18n="g.done">شكراً لك! الدليل جاهز للتحميل.</p>
+          <a class="btn btn-primary btn-sm" data-link="guidePdf" href="#" download><span data-i18n="g.download">حمّل الدليل</span><span class="btn-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></span></a>
+        </div>
+      </form>
+    </div>
+    <div class="guide-visual" data-reveal style="--d:.1s" aria-hidden="true">
+      <div class="grid-bg"></div>
+      <div class="glow"></div>
+      <div class="doc-back"></div>
+      <div class="doc glass">
+        <div class="doc-top"><span>PDF GUIDE</span><span>2026</span></div>
+        <div class="doc-bars"><i style="height:30%"></i><i style="height:42%"></i><i style="height:38%"></i><i style="height:58%"></i><i style="height:72%"></i><i style="height:96%"></i></div>
+        <div class="doc-title" data-i18n="g.doc">دليل التحول الرقمي</div>
+        <div class="doc-sub" data-i18n="brand">عمر الحردان</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIDEOS ================= -->
+<section class="section" id="videos" data-section="videos">
+  <div class="container">
+    <div class="head">
+      <span class="tag" data-reveal data-i18n="v.tag">أحدث الفيديوهات</span>
+      <h2 class="h2" data-reveal style="--d:.08s" data-i18n="v.title">قصص الشركات… <span class="accent">وما نتعلّمه منها</span></h2>
+      <p class="lead" data-reveal style="--d:.16s" data-i18n="v.lead">مقاطع قصيرة عن الأعمال والتقنية، ولماذا تنجح الشركات أو تفشل.</p>
+    </div>
+    <div class="tabs" data-video-tabs data-default="shorts" hidden>
+      <button type="button" data-tab="shorts" class="on" data-i18n="v.tab.shorts">المقاطع القصيرة</button>
+      <button type="button" data-tab="long" data-i18n="v.tab.long">الفيديوهات</button>
+    </div>
+    <div class="vids" data-longs data-limit="3" hidden></div>
+    <div class="shorts" data-shorts data-limit="4" data-reveal style="--d:.2s">
+      <div class="short skeleton"></div><div class="short skeleton"></div><div class="short skeleton"></div><div class="short skeleton"></div>
+    </div>
+    <div class="videos-foot" data-reveal>
+      <a class="btn btn-primary" href="videos.html"><span data-i18n="v.all">كل الفيديوهات</span><span class="btn-ico"><svg class="i-dir" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+      <a class="btn btn-ghost" data-social="youtube" href="#" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg><span data-i18n="v.sub">اشترك في القناة</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact" data-section="contact">
+  <div class="container contact">
+    <div class="contact-copy glass" data-reveal>
+      <span class="tag" data-i18n="c.tag">تواصل</span>
+      <h2 class="h2" data-i18n="c.title"><span class="accent">لنتحدّث</span></h2>
+      <p class="lead" data-i18n="c.lead">يسعدني التواصل وتبادل الأفكار واستكشاف فرص التعاون. اختر موعداً يناسبك لمحادثة مدتها 30 دقيقة، وسيصلك تأكيد بالموعد والتفاصيل عبر البريد.</p>
+      <div class="chips">
+        <span class="chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-i18n="c.m1">٣٠ دقيقة</span></span>
+        <span class="chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 13 5.22 3.48a.5.5 0 0 0 .78-.42V7.87a.5.5 0 0 0-.75-.43L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg><span data-i18n="c.m2">عبر الإنترنت</span></span>
+        <span class="chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg><span data-i18n="c.m3">عربي · English</span></span>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" data-mail href="#"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span data-i18n="c.email">البريد الإلكتروني</span></span><span class="ltr" data-mail-text></span></a>
+        <a class="contact-link" data-social="linkedin" href="#" target="_blank" rel="noopener"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13M7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0"/></svg>LinkedIn</span><span class="ltr">hardani3mr</span></a>
+      </div>
+    </div>
+    <div class="cal-wrap glass" data-reveal style="--d:.1s">
+      <div id="cal-inline"><div class="cal-fallback"><p data-i18n="c.loading">جارٍ تحميل التقويم…</p></div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+</Base>
