@@ -1,4 +1,4 @@
-# omarhardani.com
+# omarhardani.space
 
 موقع عمر الحردان الشخصي. مبني بـ Astro، ويُنشر على Netlify تلقائياً عند كل تعديل في GitHub.
 
@@ -6,7 +6,7 @@
 
 | ماذا | أين |
 |---|---|
-| كتابة مقال جديد | لوحة الكتابة: `omarhardani.com/admin/` (بدون كود) |
+| كتابة مقال جديد | لوحة الكتابة: `omarhardani.space/admin/` (بدون كود) |
 | الروابط والإعدادات (Udemy، البريد، مفتاح YouTube، الشعارات) | `public/assets/js/config.js` |
 | النصوص العربية | `src/pages/*.astro` |
 | النصوص الإنجليزية | `public/assets/js/i18n.js` |

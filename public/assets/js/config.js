@@ -15,11 +15,11 @@ window.SITE = {
   // Cal.com booking (from your embed code)
   calLink: "hardani3mr/30min",
 
-  // TODO: confirm your public email (suggested once you own the domain)
-  email: "hello@omarhardani.com",
+  // Public email shown on the site
+  email: "hello@omarhardani.space",
 
   socials: {
-    linkedin: "https://www.linkedin.com/in/hardani3mr",
+    linkedin: "https://www.linkedin.com/in/omarhardanii/",
     youtube: "https://www.youtube.com/@omarhardanii",
     instagram: "https://www.instagram.com/hardani3mr",
     facebook: "https://www.facebook.com/hardani3mr"
