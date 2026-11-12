@@ -51,7 +51,7 @@ const hasPosts = posts.length > 0;
         <span class="chip" data-i18n="b.t5">التحول الرقمي</span>
       </div>
       {hasPosts ? <p class="lead" data-i18n="b.notify2">اكتب بريدك لتصلك المقالات الجديدة عند نشرها.</p> : <p class="lead" data-i18n="b.notify">اكتب بريدك لتصلك أول المقالات عند نشرها.</p>}
-      <form class="form" name="blog" method="POST" data-netlify="true" netlify-honeypot="company" data-lead-form="blog">
+      <form class="form" name="blog" method="POST" data-lead-form="blog">
         <input type="hidden" name="form-name" value="blog">
         <input type="hidden" name="lang" value="ar">
         <p class="hp"><label>Company <input name="company" tabindex="-1" autocomplete="off"></label></p>

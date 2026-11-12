@@ -33,9 +33,9 @@ window.SITE = {
     apiKey: "AIzaSyB-ZudMwgcgeMG3k8ypCZ078igxnXmcm58"
   },
 
-  // Lead forms (guide + blog). Leave empty to use Netlify Forms.
-  // Or paste a Formspree / other endpoint URL that accepts POST.
-  formEndpoint: "",
+  // Guide and blog signups are sent to Kit (kit.com) through a small Netlify function
+  // (netlify/functions/subscribe.mjs). The Kit key is stored in Netlify, not here.
+  formEndpoint: "/api/subscribe",
 
   // Logos of ventures you've founded or contributed to (shown on the home page).
   // Add files to assets/img/logos/ and list them here. Empty list = section hidden.
