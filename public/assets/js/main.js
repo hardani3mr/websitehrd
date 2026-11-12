@@ -194,14 +194,21 @@
   // YouTube keeps two automatic playlists per channel:
   // "UULF…" = long videos only, "UUSH…" = Shorts only.
   function fetchPlaylist(prefix, yt) {
-    var url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=" +
+    var base = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=" +
       prefix + yt.channelId.slice(2) + "&key=" + encodeURIComponent(yt.apiKey);
-    return fetch(url).then(function (r) {
-      if (r.status === 404) return { items: [] };   // the channel has none of this kind yet
-      if (!r.ok) throw new Error(r.status);
-      return r.json();
-    }).then(function (d) {
-      var items = (d.items || []).map(function (it) {
+    var all = [];
+    var page = function (token, n) {
+      return fetch(base + (token ? "&pageToken=" + token : "")).then(function (r) {
+        if (r.status === 404) return { items: [] };   // the channel has none of this kind yet
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      }).then(function (d) {
+        all = all.concat(d.items || []);
+        if (d.nextPageToken && n < 4) return page(d.nextPageToken, n + 1);   // up to 200 videos
+      });
+    };
+    return page("", 1).then(function () {
+      var items = all.map(function (it) {
         var s = it.snippet || {}, th = s.thumbnails || {};
         var best = th.maxres || th.standard || th.high || th.medium || {};
         return { id: (s.resourceId || {}).videoId, title: s.title, published: s.publishedAt, thumb: best.url };
@@ -216,7 +223,7 @@
     var yt = SITE.youtube || {};
     if (!yt.apiKey || !yt.channelId) { videosPromise = Promise.resolve(fallbackVideos()); return videosPromise; }
 
-    var cacheKey = "yt-cache-v2";
+    var cacheKey = "yt-cache-v3";
     try {
       var c = JSON.parse(sessionStorage.getItem(cacheKey) || "null");
       if (c && Date.now() - c.t < 30 * 60 * 1000) { videosPromise = Promise.resolve(c.data); return videosPromise; }
@@ -253,10 +260,65 @@
       '<span class="meta"><p dir="auto">' + esc(title) + "</p></span></button>";
   }
 
+  // Grids with data-page-size show that many videos per page, with numbered pages below.
   function fill(box, items, wide) {
-    var limit = parseInt(box.getAttribute("data-limit"), 10) || 8;
-    var list = items.slice(0, limit);
-    box.innerHTML = list.length ? list.map(function (v) { return card(v, wide); }).join("") : '<p class="muted">' + t("noVideos") + "</p>";
+    var size = parseInt(box.getAttribute("data-page-size"), 10);
+    if (!size) {
+      var limit = parseInt(box.getAttribute("data-limit"), 10) || 8;
+      var list = items.slice(0, limit);
+      box.innerHTML = list.length ? list.map(function (v) { return card(v, wide); }).join("") : '<p class="muted">' + t("noVideos") + "</p>";
+      return;
+    }
+    box.__items = items; box.__wide = wide; box.__size = size;
+    if (!box.__page) box.__page = 1;
+    if (!box.__pager) {
+      box.__pager = document.createElement("nav");
+      box.__pager.className = "pager";
+      box.__pager.setAttribute("aria-label", "Pages");
+      box.parentNode.insertBefore(box.__pager, box.nextSibling);
+      box.__pager.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-page]");
+        if (!b || b.disabled) return;
+        box.__page = parseInt(b.getAttribute("data-page"), 10);
+        renderPage(box);
+        var top = box.getBoundingClientRect().top + window.scrollY - 140;
+        window.scrollTo({ top: top, behavior: "smooth" });
+      });
+    }
+    renderPage(box);
+  }
+
+  function pageList(cur, total) {
+    if (total <= 7) return Array.from({ length: total }, function (_, i) { return i + 1; });
+    var out = [1];
+    if (cur > 3) out.push("…");
+    for (var p = Math.max(2, cur - 1); p <= Math.min(total - 1, cur + 1); p++) out.push(p);
+    if (cur < total - 2) out.push("…");
+    out.push(total);
+    return out;
+  }
+
+  function renderPage(box) {
+    var items = box.__items || [], size = box.__size, total = Math.max(1, Math.ceil(items.length / size));
+    if (box.__page > total) box.__page = total;
+    var cur = box.__page, slice = items.slice((cur - 1) * size, cur * size);
+    box.innerHTML = slice.length ? slice.map(function (v) { return card(v, box.__wide); }).join("") : '<p class="muted">' + t("noVideos") + "</p>";
+    var pager = box.__pager;
+    if (total < 2) { pager.hidden = true; pager.innerHTML = ""; return; }
+    var html = '<button type="button" class="pg-step" data-page="' + (cur - 1) + '"' + (cur === 1 ? " disabled" : "") + ">" + t("prev") + "</button>";
+    pageList(cur, total).forEach(function (p) {
+      html += p === "…" ? '<span class="pg-gap">…</span>'
+        : '<button type="button" data-page="' + p + '"' + (p === cur ? ' class="on" aria-current="page"' : "") + ">" + p + "</button>";
+    });
+    html += '<button type="button" class="pg-step" data-page="' + (cur + 1) + '"' + (cur === total ? " disabled" : "") + ">" + t("next") + "</button>";
+    pager.innerHTML = html;
+    pager.hidden = box.hidden;
+  }
+
+  function syncPagers(boxes) {
+    boxes.forEach(function (b) {
+      if (b.__pager) b.__pager.hidden = b.hidden || !b.__items || b.__items.length <= b.__size;
+    });
   }
 
   var currentTab = null;
@@ -267,6 +329,7 @@
       var hasLong = data.long.length > 0, hasShorts = data.shorts.length > 0;
       shortsBoxes.forEach(function (b) { fill(b, data.shorts, false); });
       longBoxes.forEach(function (b) { if (hasLong) fill(b, data.long, true); b.hidden = !hasLong; });
+      syncPagers(longBoxes.concat(shortsBoxes));
 
       var tabs = $("[data-video-tabs]");
       if (!tabs) return;
@@ -278,6 +341,7 @@
         $$("[data-tab]", tabs).forEach(function (b) { b.classList.toggle("on", b.getAttribute("data-tab") === tab); });
         longBoxes.forEach(function (b) { b.hidden = !(hasLong && tab === "long"); });
         shortsBoxes.forEach(function (b) { b.hidden = !(tab === "shorts"); });
+        syncPagers(longBoxes.concat(shortsBoxes));
       };
       show(both ? currentTab : (hasLong ? "long" : "shorts"));
       if (!tabs.__bound) {

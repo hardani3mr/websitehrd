@@ -838,6 +838,15 @@ html[lang="en"] .footer-word { letter-spacing: -0.05em; }
 .tabs button:hover { color: #fff; }
 .tabs button.on { color: #fff; background: rgba(255,255,255,.1); box-shadow: inset 0 1px 0 rgba(255,255,255,.12); }
 
+/* Pagination */
+.pager { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; margin-top: 40px; }
+.pager[hidden] { display: none; }
+.pager button { min-width: 42px; height: 42px; padding-inline: 14px; border: 0; border-radius: var(--pill); cursor: pointer; font: inherit; font-size: 14px; color: var(--text-soft); background: rgba(255,255,255,.04); box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); transition: background .3s, color .3s; font-variant-numeric: tabular-nums; }
+.pager button:hover:not(:disabled) { color: #fff; background: rgba(255,255,255,.1); }
+.pager button.on { color: #000; background: #fff; box-shadow: 0 0 20px rgba(255,255,255,.18); }
+.pager button:disabled { opacity: .35; cursor: default; }
+.pager .pg-gap { color: var(--text-mute); padding-inline: 4px; }
+
 /* =========================================================
    BLOG — list
    ========================================================= */

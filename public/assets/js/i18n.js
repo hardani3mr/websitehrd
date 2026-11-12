@@ -184,7 +184,9 @@ window.UI_TEXT = {
     error: "تعذّر الإرسال. حاول مرة أخرى بعد قليل.",
     play: "تشغيل",
     noVideos: "لا توجد فيديوهات حالياً.",
-    short: "SHORT"
+    short: "SHORT",
+    prev: "السابق",
+    next: "التالي"
   },
   en: {
     langLabel: "عربي",
@@ -192,6 +194,8 @@ window.UI_TEXT = {
     error: "Couldn’t send. Please try again in a moment.",
     play: "Play",
     noVideos: "No videos right now.",
-    short: "SHORT"
+    short: "SHORT",
+    prev: "Previous",
+    next: "Next"
   }
 };
