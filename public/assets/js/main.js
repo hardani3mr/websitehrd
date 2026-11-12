@@ -387,7 +387,7 @@
         btn.disabled = true;
 
         var data = new FormData(form);
-        var endpoint = SITE.formEndpoint;
+        var endpoint = SITE.formEndpoint ? rel(SITE.formEndpoint) : "";
         var req = endpoint
           ? fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
           : fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(data).toString() });
