@@ -916,6 +916,10 @@ html[lang="en"] .footer-word { letter-spacing: -0.05em; }
   .post-end { padding: 24px 20px; }
 }
 
+/* Focus ring only for keyboard users (no blue ring after a mouse click) */
+button:focus, a:focus { outline: none; }
+button:focus-visible, a:focus-visible, .input:focus-visible { outline: 2px solid rgba(255,255,255,.7); outline-offset: 3px; }
+
 /* =========================================================
    REVEAL ANIMATIONS
    ========================================================= */
